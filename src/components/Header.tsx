@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
+import { useLanguage } from '../hooks/useLanguage';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { currentLanguage, setCurrentLanguage, t } = useLanguage();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +19,11 @@ const Header: React.FC = () => {
   }, []);
   
   const navLinks = [
-    { name: 'Home', href: '#hero' },
-    { name: 'About me', href: '#about' },
-    { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Services', href: '#services' },
-    { name: 'Contact', href: '#contact' },
+    { name: t('nav.home'), href: '#hero' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.portfolio'), href: '#portfolio' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.contact'), href: '#contact' },
   ];
   
   return (
@@ -38,25 +41,30 @@ const Header: React.FC = () => {
             <span className="gradient-text">Web development</span>
           </a>
           
-          {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              {navLinks.map((link, index) => (
-                <li key={index}>
-                  <a 
-                    href={link.href} 
-                    className={`font-medium hover:text-primary-500 transition-colors duration-300 ${
-                      isScrolled ? 'text-gray-700' : 'text-white'
-                    }`}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          <div className="hidden md:flex items-center gap-8">
+            <nav>
+              <ul className="flex space-x-8">
+                {navLinks.map((link, index) => (
+                  <li key={index}>
+                    <a 
+                      href={link.href} 
+                      className={`font-medium hover:text-primary-500 transition-colors duration-300 ${
+                        isScrolled ? 'text-gray-700' : 'text-white'
+                      }`}
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            
+            <LanguageSelector
+              currentLanguage={currentLanguage}
+              onLanguageChange={setCurrentLanguage}
+            />
+          </div>
           
-          {/* Mobile Menu Button */}
           <button 
             className="md:hidden"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -71,7 +79,6 @@ const Header: React.FC = () => {
         </div>
       </div>
       
-      {/* Mobile Navigation */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div 
@@ -100,6 +107,13 @@ const Header: React.FC = () => {
                   </motion.li>
                 ))}
               </ul>
+              
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <LanguageSelector
+                  currentLanguage={currentLanguage}
+                  onLanguageChange={setCurrentLanguage}
+                />
+              </div>
             </nav>
           </motion.div>
         )}

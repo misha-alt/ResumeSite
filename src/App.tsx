@@ -25,12 +25,14 @@ import Header from './components/Header';
 import MouseParallax from './components/MouseParallax';
 import TiltCard from './components/TiltCard';
 import FadeInSection from './components/FadeInSection';
+import { useLanguage } from './hooks/useLanguage';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const { scrollYProgress } = useScroll();
   const heroRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
   
   // Parallax effect values
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
@@ -106,28 +108,28 @@ function App() {
 
   const services = [
     {
-      title: 'Web Development',
-      description: 'Custom websites built with modern technologies and best practices.',
+      title: t('services.webDev.title'),
+      description: t('services.webDev.description'),
       icon: <Code size={32} />,
     },
     {
-      title: 'Interactive Animations',
-      description: 'Engaging animations that enhance user experience and interaction.',
+      title: t('services.animations.title'),
+      description: t('services.animations.description'),
       icon: <Zap size={32} />,
     },
     {
-      title: 'Responsive Design',
-      description: 'Websites that look great on all devices, from mobile to desktop.',
+      title: t('services.responsive.title'),
+      description: t('services.responsive.description'),
       icon: <Smartphone size={32} />,
     },
     {
-      title: 'UI/UX Design',
-      description: 'User-centered design that focuses on usability and aesthetics.',
+      title: t('services.uiux.title'),
+      description: t('services.uiux.description'),
       icon: <Palette size={32} />,
     },
     {
-      title: 'Performance Optimization',
-      description: 'Fast-loading websites optimized for search engines and users.',
+      title: t('services.performance.title'),
+      description: t('services.performance.description'),
       icon: <LineChart size={32} />,
     },
   ];
@@ -160,7 +162,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Transforming ideas into <span className="gradient-text">modern animated websites</span> 🚀
+            {t('hero.title')}
           </motion.h1>
           
           <motion.p 
@@ -169,7 +171,7 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Creating engaging digital experiences with smooth animations and interactive elements.
+            {t('hero.subtitle')}
           </motion.p>
           
           <motion.div 
@@ -178,8 +180,8 @@ function App() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <a href="#contact" className="btn-primary">Get in Touch</a>
-            <a href="#portfolio" className="btn-outline">View My Work</a>
+            <a href="#contact" className="btn-primary">{t('nav.contact')}</a>
+            <a href="#portfolio" className="btn-outline">{t('nav.portfolio')}</a>
           </motion.div>
         </motion.div>
         
@@ -192,7 +194,7 @@ function App() {
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <FadeInSection>
-            <h2 className="section-title text-center mb-16">About Me</h2>
+            <h2 className="section-title text-center mb-16">{t('about.title')}</h2>
           </FadeInSection>
           
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -208,16 +210,10 @@ function App() {
             
             <FadeInSection delay={0.2}>
               <div className="animate-on-scroll text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-4">Hi there! I'm a web developer passionate about creating animated experiences.</h3>
-                <p className="text-gray-700 mb-6">
-                  I specialize in building modern, interactive websites that engage users through thoughtful animations and smooth transitions. With a focus on performance and user experience, I create digital solutions that not only look great but also function flawlessly.
-                </p>
-                <p className="text-gray-700 mb-6">
-                  My approach combines manufacturability with creative design thinking to deliver websites that stand out in today's digital landscape. I'm constantly exploring new technologies and techniques to push the boundaries of what's possible on the web.
-                </p>
-                <p className="text-gray-700 mb-6">
-                  I also provide comprehensive business process automation services leveraging cutting-edge AI technologies. From workflow optimization to intelligent data processing, I help businesses streamline their operations and achieve greater efficiency through smart automation solutions.
-                </p>
+                <h3 className="text-2xl font-bold mb-4">{t('about.greeting')}</h3>
+                <p className="text-gray-700 mb-6">{t('about.description1')}</p>
+                <p className="text-gray-700 mb-6">{t('about.description2')}</p>
+                <p className="text-gray-700 mb-6">{t('about.description3')}</p>
               </div>
             </FadeInSection>
             
@@ -243,7 +239,7 @@ function App() {
       <section id="portfolio" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeInSection>
-            <h2 className="section-title text-center mb-16">My Portfolio</h2>
+            <h2 className="section-title text-center mb-16">{t('portfolio.title')}</h2>
           </FadeInSection>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -260,7 +256,7 @@ function App() {
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                         <div className="p-4 w-full">
                           <a href="#" className="text-white flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                            View Project <ExternalLink size={16} />
+                            {t('portfolio.viewProject')} <ExternalLink size={16} />
                           </a>
                         </div>
                       </div>
@@ -288,7 +284,7 @@ function App() {
       <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <FadeInSection>
-            <h2 className="section-title text-center mb-16">Services</h2>
+            <h2 className="section-title text-center mb-16">{t('services.title')}</h2>
           </FadeInSection>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -313,15 +309,15 @@ function App() {
       <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeInSection>
-            <h2 className="section-title text-center mb-16">Get In Touch</h2>
+            <h2 className="section-title text-center mb-16">{t('contact.title')}</h2>
           </FadeInSection>
           
           <div className="grid md:grid-cols-2 gap-12 items-start">
             <FadeInSection>
               <div>
-                <h3 className="text-2xl font-bold mb-4">Let's work together</h3>
+                <h3 className="text-2xl font-bold mb-4">{t('contact.subtitle')}</h3>
                 <p className="text-gray-700 mb-6">
-                  Have a project in mind or want to discuss how we can collaborate? Feel free to reach out through the form or connect with me on social media.
+                  {t('contact.description')}
                 </p>
                 
                 <div className="flex gap-4 mb-8">
@@ -346,39 +342,47 @@ function App() {
                 <input type="hidden" name="access_key" value={accessKey}/>
                 <input type="hidden" name="email" value="mihailnadia27@gmail.com" />
                 <div className="mb-4">
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('contact.form.name')}
+                  </label>
                   <input 
                     name="name"
                     type="text" 
                     id="name" 
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
-                    placeholder="Your name"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
                 
                 <div className="mb-4">
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('contact.form.email')}
+                  </label>
                   <input 
-                    name="name"
+                    name="email"
                     type="email" 
                     id="email" 
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
-                    placeholder="your.email@example.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
                 
                 <div className="mb-4">
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                    {t('contact.form.message')}
+                  </label>
                   <textarea 
-                    name="name"
+                    name="message"
                     id="message" 
                     rows={4} 
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
-                    placeholder="Tell me about your project..."
+                    placeholder={t('contact.form.messagePlaceholder')}
                   ></textarea>
                 </div>
                 
-                <button type="submit" className="btn-primary w-full">Send Message</button>
+                <button type="submit" className="btn-primary w-full">
+                  {t('contact.form.submit')}
+                </button>
               </form>
             </FadeInSection>
           </div>
@@ -388,8 +392,8 @@ function App() {
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <p>© {new Date().getFullYear()} Yatskevich Mikhail. All rights reserved.</p>
-          <p className="text-gray-400 mt-2">Made with React</p>
+          <p>© {new Date().getFullYear()} Yatskevich Mikhail. {t('footer.rights')}</p>
+          <p className="text-gray-400 mt-2">{t('footer.madeWith')}</p>
         </div>
       </footer>
     </div>
