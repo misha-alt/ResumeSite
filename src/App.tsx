@@ -38,7 +38,6 @@ function App() {
 
   const accessKey = import.meta.env.VITE_WEB3FORMS_API_KEY;
   
-  
   useEffect(() => {
     // Initialize GSAP animations
     if (heroRef.current) {
@@ -80,9 +79,8 @@ function App() {
     { name: 'JavaScript', icon: <Zap size={24} />, color: 'bg-yellow-500' },
     { name: 'React', icon: <Layers size={24} />, color: 'bg-cyan-500' },
     { name: 'Responsive Design', icon: <Smartphone size={24} />, color: 'bg-green-500' },
-     // Новые элементы:
-  { name: 'Java', icon: <Coffee size={24} />, color: 'bg-orange-500' },
-  { name: 'Spring', icon: <Sprout size={24} />, color: 'bg-emerald-500' },
+    { name: 'Java', icon: <Coffee size={24} />, color: 'bg-orange-500' },
+    { name: 'Spring', icon: <Sprout size={24} />, color: 'bg-emerald-500' },
   ];
 
   const projects = [
@@ -132,7 +130,7 @@ function App() {
       description: 'Fast-loading websites optimized for search engines and users.',
       icon: <LineChart size={32} />,
     },
-      ];
+  ];
 
   return (
     <div className="min-h-screen">
@@ -209,13 +207,16 @@ function App() {
             </FadeInSection>
             
             <FadeInSection delay={0.2}>
-              <div className="animate-on-scroll">
+              <div className="animate-on-scroll text-center md:text-left">
                 <h3 className="text-2xl font-bold mb-4">Hi there! I'm a web developer passionate about creating animated experiences.</h3>
                 <p className="text-gray-700 mb-6">
                   I specialize in building modern, interactive websites that engage users through thoughtful animations and smooth transitions. With a focus on performance and user experience, I create digital solutions that not only look great but also function flawlessly.
                 </p>
                 <p className="text-gray-700 mb-6">
                   My approach combines manufacturability with creative design thinking to deliver websites that stand out in today's digital landscape. I'm constantly exploring new technologies and techniques to push the boundaries of what's possible on the web.
+                </p>
+                <p className="text-gray-700 mb-6">
+                  I also provide comprehensive business process automation services leveraging cutting-edge AI technologies. From workflow optimization to intelligent data processing, I help businesses streamline their operations and achieve greater efficiency through smart automation solutions.
                 </p>
               </div>
             </FadeInSection>
@@ -280,14 +281,6 @@ function App() {
               </FadeInSection>
             ))}
           </div>
-          
-          {/* <div className="text-center mt-12">
-            <FadeInSection>
-              <a href="#" className="btn-outline inline-flex items-center gap-2">
-                View All Projects <ExternalLink size={16} />
-              </a>
-            </FadeInSection>
-          </div> */}
         </div>
       </section>
       
@@ -350,12 +343,12 @@ function App() {
             
             <FadeInSection delay={0.2}>
               <form className="card" action="https://api.web3forms.com/submit" method="POST">
-              <input type="hidden" name="access_key" value={accessKey}/>
-              <input type="hidden" name="email" value="mihailnadia27@gmail.com" />
+                <input type="hidden" name="access_key" value={accessKey}/>
+                <input type="hidden" name="email" value="mihailnadia27@gmail.com" />
                 <div className="mb-4">
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
                   <input 
-                   name="name"
+                    name="name"
                     type="text" 
                     id="name" 
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
@@ -366,7 +359,7 @@ function App() {
                 <div className="mb-4">
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                   <input 
-                   name="name"
+                    name="name"
                     type="email" 
                     id="email" 
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
@@ -375,9 +368,9 @@ function App() {
                 </div>
                 
                 <div className="mb-4">
-                  <label htmlFor="message"  className="block text-sm font-medium text-gray-700 mb-1" >Message</label>
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                   <textarea 
-                   name="name"
+                    name="name"
                     id="message" 
                     rows={4} 
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-300"
