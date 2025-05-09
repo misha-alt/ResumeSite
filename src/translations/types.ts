@@ -23,6 +23,20 @@ export interface Translations {
     portfolio: {
       title: string;
       viewProject: string;
+      projects: {
+        ecommerce: {
+          title: string;
+          description: string;
+        };
+        jira: {
+          title: string;
+          description: string;
+        };
+        saas: {
+          title: string;
+          description: string;
+        };
+      };
     };
     services: {
       title: string;
@@ -64,6 +78,7 @@ export interface Translations {
     footer: {
       rights: string;
       madeWith: string;
+      copyright: string;
     };
   };
 }

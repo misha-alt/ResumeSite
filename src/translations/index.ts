@@ -22,7 +22,21 @@ export const translations: Translations = {
     },
     portfolio: {
       title: 'My Portfolio',
-      viewProject: 'View Project'
+      viewProject: 'View Project',
+      projects: {
+        ecommerce: {
+          title: 'E-Commerce Platform',
+          description: 'A modern e-commerce solution with animations and smooth transitions.'
+        },
+        jira: {
+          title: 'Jira',
+          description: 'Flexible project management system with tasks, statuses and team analytics.'
+        },
+        saas: {
+          title: 'SaaS Dashboard',
+          description: 'An animated dashboard with data visualization and user interactions.'
+        }
+      }
     },
     services: {
       title: 'Services',
@@ -63,7 +77,8 @@ export const translations: Translations = {
     },
     footer: {
       rights: 'All rights reserved.',
-      madeWith: 'Made with React'
+      madeWith: 'Made with React',
+      copyright: '© {year} Yatskevich Mikhail.'
     }
   },
   es: {
@@ -87,7 +102,21 @@ export const translations: Translations = {
     },
     portfolio: {
       title: 'Mi Portafolio',
-      viewProject: 'Ver Proyecto'
+      viewProject: 'Ver Proyecto',
+      projects: {
+        ecommerce: {
+          title: 'Plataforma E-Commerce',
+          description: 'Una solución moderna de comercio electrónico con animaciones y transiciones suaves.'
+        },
+        jira: {
+          title: 'Jira',
+          description: 'Sistema flexible de gestión de proyectos con tareas, estados y análisis de equipo.'
+        },
+        saas: {
+          title: 'Panel de Control SaaS',
+          description: 'Un panel de control animado con visualización de datos e interacciones de usuario.'
+        }
+      }
     },
     services: {
       title: 'Servicios',
@@ -128,7 +157,8 @@ export const translations: Translations = {
     },
     footer: {
       rights: 'Todos los derechos reservados.',
-      madeWith: 'Hecho con React'
+      madeWith: 'Hecho con React',
+      copyright: '© {year} Yatskevich Mikhail.'
     }
   },
   ru: {
@@ -152,7 +182,21 @@ export const translations: Translations = {
     },
     portfolio: {
       title: 'Мое портфолио',
-      viewProject: 'Посмотреть проект'
+      viewProject: 'Посмотреть проект',
+      projects: {
+        ecommerce: {
+          title: 'E-Commerce Платформа',
+          description: 'Современное решение для электронной коммерции с анимациями и плавными переходами.'
+        },
+        jira: {
+          title: 'Jira',
+          description: 'Гибкая система управления проектами с задачами, статусами и аналитикой команды.'
+        },
+        saas: {
+          title: 'SaaS Панель управления',
+          description: 'Анимированная панель управления с визуализацией данных и пользовательскими взаимодействиями.'
+        }
+      }
     },
     services: {
       title: 'Услуги',
@@ -193,7 +237,8 @@ export const translations: Translations = {
     },
     footer: {
       rights: 'Все права защищены.',
-      madeWith: 'Сделано на React'
+      madeWith: 'Сделано на React',
+      copyright: '© {year} Яцкевич Михаил.'
     }
   }
 };

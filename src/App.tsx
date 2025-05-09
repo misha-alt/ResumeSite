@@ -34,14 +34,12 @@ function App() {
   const heroRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
   
-  // Parallax effect values
   const y = useTransform(scrollYProgress, [0, 1], [0, 300]);
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   const accessKey = import.meta.env.VITE_WEB3FORMS_API_KEY;
   
   useEffect(() => {
-    // Initialize GSAP animations
     if (heroRef.current) {
       gsap.fromTo(
         '.hero-text',
@@ -56,7 +54,6 @@ function App() {
       );
     }
     
-    // Set up scroll animations
     gsap.utils.toArray('.animate-on-scroll').forEach((element: any) => {
       gsap.fromTo(
         element,
@@ -87,20 +84,20 @@ function App() {
 
   const projects = [
     {   
-      title: 'E-Commerce Platform',
-      description: 'A modern e-commerce solution with animations and smooth transitions.',
+      title: t('portfolio.projects.ecommerce.title'),
+      description: t('portfolio.projects.ecommerce.description'),
       image: 'https://images.unsplash.com/photo-1661956602944-249bcd04b63f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
       tags: ['React', 'GSAP', 'Tailwind CSS'],
     },
     {
-      title: 'Jira',
-      description: 'Flexible project management system with tasks, statuses and team analytics.',
+      title: t('portfolio.projects.jira.title'),
+      description: t('portfolio.projects.jira.description'),
       image: 'https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80',
       tags: ['Framer Motion', 'Three.js', 'Next.js'],
     },
     {
-      title: 'SaaS Dashboard',
-      description: 'An animated dashboard with data visualization and user interactions.',
+      title: t('portfolio.projects.saas.title'),
+      description: t('portfolio.projects.saas.description'),
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
       tags: ['React', 'D3.js', 'Styled Components'],
     },
@@ -138,7 +135,6 @@ function App() {
     <div className="min-h-screen">
       <Header />
       
-      {/* Hero Section */}
       <section 
         ref={heroRef}
         id="hero" 
@@ -190,7 +186,6 @@ function App() {
         </div>
       </section>
       
-      {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <FadeInSection>
@@ -235,7 +230,6 @@ function App() {
         </div>
       </section>
       
-      {/* Portfolio Section */}
       <section id="portfolio" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeInSection>
@@ -280,7 +274,6 @@ function App() {
         </div>
       </section>
       
-      {/* Services Section */}
       <section id="services" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <FadeInSection>
@@ -305,7 +298,6 @@ function App() {
         </div>
       </section>
       
-      {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <FadeInSection>
@@ -389,10 +381,9 @@ function App() {
         </div>
       </section>
       
-      {/* Footer */}
       <footer className="py-8 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <p>© {new Date().getFullYear()} Yatskevich Mikhail. {t('footer.rights')}</p>
+          <p>{t('footer.copyright').replace('{year}', new Date().getFullYear().toString())} {t('footer.rights')}</p>
           <p className="text-gray-400 mt-2">{t('footer.madeWith')}</p>
         </div>
       </footer>
